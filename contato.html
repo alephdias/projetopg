@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - PerfilGlass | Esquadrias de Alumínio Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #006400;
+            --primary-light: #2E8B57;
+            --primary-dark: #004d00;
+            --secondary: #333333;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray: #e9ecef;
+            --dark-gray: #6c757d;
+            --text: #212529;
+            --text-light: #495057;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 18px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .header.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary-light);
+            margin-left: 4px;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--primary-light);
+            font-size: 24px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 32px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 16px;
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Contact */
+        .hero-contact {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 32px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            opacity: 0.9;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 24px;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .scroll-down:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-light);
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-form {
+            background-color: var(--light);
+            padding: 48px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .form-title, .info-title {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 12px;
+            position: relative;
+        }
+        
+        .form-title:after, .info-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-light);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: var(--transition);
+            background-color: var(--white);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-light);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+        }
+        
+        .btn-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-light);
+            color: var(--white);
+            padding: 14px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(46, 139, 87, 0.2);
+        }
+        
+        .btn-submit:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(46, 139, 87, 0.3);
+        }
+        
+        /* Contact Info */
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 28px;
+        }
+        
+        .info-icon {
+            font-size: 24px;
+            color: var(--primary-light);
+            margin-right: 20px;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .info-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        
+        .info-content p, .info-content a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .info-content a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        /* Business Hours */
+        .business-hours {
+            margin-top: 40px;
+        }
+        
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .hours-table th, .hours-table td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .hours-table th {
+            background-color: rgba(0, 100, 0, 0.05);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Map Section */
+        .map-section {
+            padding: 0 0 100px;
+        }
+        
+        .map-container {
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .map-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 100, 0, 0.15);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            padding: 80px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary-light), var(--primary));
+        }
+        
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .footer p {
+            margin-bottom: 16px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 17px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 36px 0;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 12px;
+            color: var(--white);
+            font-size: 20px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 24px 0;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            margin: 0 16px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            opacity: 0.8;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 15px;
+            opacity: 0.7;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-light);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Responsividade */
+        @media (max-width: 1200px) {
+            .contact-container {
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .header-content {
+                justify-content: center;
+            }
+            
+            .hero-contact {
+                height: 50vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            .contact-form {
+                padding: 32px;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+            }
+            
+            .footer-links a {
+                margin: 8px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-contact {
+                height: 45vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 30px;
+            }
+            
+            .contact-section {
+                padding: 70px 0;
+            }
+            
+            .contact-form {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-building"></i>Perfil<span>Glass</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="painel.html">Painel</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-contact">
+        <div class="hero-content">
+            <h1>Fale com a PerfilGlass</h1>
+            <p>Solicite um orçamento ou tire suas dúvidas sobre nossas esquadrias de alumínio</p>
+        </div>
+        <div class="scroll-down" onclick="scrollToContent()">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entre em Contato</h2>
+                <p>Nossa equipe está pronta para atender suas necessidades em esquadrias de alumínio</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3 class="form-title">Envie sua Mensagem</h3>
+                    <form id="contactForm" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Selecione...</option>
+                                <option value="orcamento">Solicitar Orçamento</option>
+                                <option value="duvida">Tirar Dúvidas</option>
+                                <option value="reclamacao">Reclamação</option>
+                                <option value="elogio">Elogio</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar Mensagem</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 class="info-title">Informações de Contato</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Endereço</h3>
+                            <p>Avenida Ouro Verde de Minas, 41 Jardim Imperador<br>São Paulo - SP, 03937090</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Telefones</h3>
+                            <p>
+                                <a href="tel:+551123456789">(11) 2345-6789</a><br>
+                                <a href="tel:+5511987654321">(11) 98765-4321</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>E-mail</h3>
+                            <p>
+                                <a href="mailto:contato@perfilglass.com.br">contato@perfilglass.com.br</a><br>
+                                <a href="mailto:orcamentos@perfilglass.com.br">orcamentos@perfilglass.com.br</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="business-hours">
+                        <h3><i class="far fa-clock"></i> Horário de Funcionamento</h3>
+                        <table class="hours-table">
+                            <tr>
+                                <th>Segunda - Sexta</th>
+                                <td>08:00 - 18:00</td>
+                            </tr>
+                            <tr>
+                                <th>Sábado</th>
+                                <td>08:00 - 12:00</td>
+                            </tr>
+                            <tr>
+                                <th>Domingo</th>
+                                <td>Fechado</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossa Localização</h2>
+                <p>Visite nossa sede em São Paulo ou agende uma visita técnica</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975844558826!2d-46.5928129246831!3d-23.558616978798834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59a00cc9896b%3A0x4d7fa8becba4e40d!2sLiberdade%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1629916542932!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">Perfil<span>Glass</span></div>
+            <p>Especialistas em esquadrias de alumínio desde 1983</p>
+            <p>Atendendo exclusivamente São Paulo com excelência</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="contato.html">Contato</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Serviço</a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 PerfilGlass. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Smooth scroll function
+        function scrollToContent() {
+            const element = document.querySelector('.contact-section');
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scroll for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulação de envio do formulário
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            
+            alert(`Obrigado, ${name}! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.`);
+            
+            // Aqui você pode adicionar o código real para enviar o formulário
+            // Exemplo com Fetch API:
+            /*
+            fetch('seu-endpoint.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if(data.success) {
+                    document.getElementById('contactForm').reset();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.');
+            });
+            */
+            
+            this.reset();
+        });
+    </script>
+</body>
+</html>

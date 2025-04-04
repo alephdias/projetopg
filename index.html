@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerfilGlass - Esquadrias de Alumínio Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #006400;
+            --primary-light: #2E8B57;
+            --primary-dark: #004d00;
+            --secondary: #333333;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray: #e9ecef;
+            --dark-gray: #6c757d;
+            --text: #212529;
+            --text-light: #495057;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 18px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .header.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary-light);
+            margin-left: 4px;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--primary-light);
+            font-size: 24px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 32px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 16px;
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1600585152220-90363fe7e115');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 32px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-light);
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn i {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .btn:hover i {
+            transform: translateX(4px);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 24px;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .scroll-down:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-light);
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(46, 139, 87, 0.15);
+            border-color: var(--primary-light);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            color: var(--primary-light);
+            margin-bottom: 24px;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+        
+        .feature-card p {
+            color: var(--text-light);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 24px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .about-text h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-light);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            height: 500px;
+            position: relative;
+        }
+        
+        .about-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+            z-index: 1;
+        }
+        
+        .about-image:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 100, 0, 0.2);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 48px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 36px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 100, 0, 0.1);
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            font-family: 'Montserrat', sans-serif;
+            font-size: 80px;
+            color: var(--primary-light);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 24px;
+            font-style: italic;
+            color: var(--text-light);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 48px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 100, 0, 0.15);
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: var(--transition);
+            background-color: var(--white);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-light);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            padding: 80px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary-light), var(--primary));
+        }
+        
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .footer p {
+            margin-bottom: 16px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 17px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 36px 0;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 12px;
+            color: var(--white);
+            font-size: 20px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 24px 0;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            margin: 0 16px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            opacity: 0.8;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 15px;
+            opacity: 0.7;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-light);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Responsividade */
+        @media (max-width: 1200px) {
+            .about-content {
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                height: 400px;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .header-content {
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+            }
+            
+            .footer-links a {
+                margin: 8px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                height: 80vh;
+            }
+            
+            .hero h1 {
+                font-size: 30px;
+            }
+            
+            .contact-form {
+                padding: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-building"></i>Perfil<span>Glass</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="painel.html">Painel</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Esquadrias de Alumínio Premium para Sua Obra</h1>
+            <p>A PerfilGlass é especialista em esquadrias de alumínio de alta performance, combinando tecnologia alemã com design moderno para projetos residenciais e corporativos.</p>
+            <a href="#contact" class="btn">Solicitar Orçamento <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="scroll-down" onclick="scrollToContent()">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossas Soluções em Alumínio</h2>
+                <p>Tecnologia e qualidade em cada detalhe das nossas esquadrias</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Sistemas de Alto Desempenho</h3>
+                    <p>Esquadrias de alumínio com tecnologia de ponta para excelente estanqueidade, isolamento térmico-acústico e máxima durabilidade.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-ruler-combined"></i></div>
+                    <h3>Projetos Personalizados</h3>
+                    <p>Desenvolvemos soluções sob medida para cada projeto, desde janelas basculantes até fachadas envidraçadas de grande porte.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>Instalação Certificada</h3>
+                    <p>Equipe especializada em instalação de esquadrias de alumínio, garantindo perfeito funcionamento e total adequação às normas técnicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Especialistas em Esquadrias de Alumínio</h2>
+                    <p>A PerfilGlass é referência nacional no desenvolvimento de sistemas de esquadrias de alumínio para edificações de alto padrão. Nossos produtos combinam a leveza do alumínio com a resistência necessária para grandes vãos e fachadas envidraçadas.</p>
+                    <p>Utilizamos apenas perfis de alumínio de primeira linha, com tratamento superficial por anodização ou pintura eletrostática a pó, garantindo resistência às intempéries e baixa manutenção.</p>
+                    <p>Nossos sistemas incluem janelas de correr, basculantes, pivotantes, portas de enrolar e fachadas cortina, todos desenvolvidos para atender as mais rigorosas normas de desempenho.</p>
+                    <a href="sobre.html" class="btn-outline">Conheça Nossa História <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a" alt="Esquadrias de alumínio PerfilGlass">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Depoimentos de Quem Confia</h2>
+                <p>A opinião de arquitetos, engenheiros e clientes que já trabalharam conosco</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Como arquiteto, especifico esquadrias de alumínio há 15 anos e a PerfilGlass superou todas as expectativas no nosso último projeto corporativo. O sistema de fachada cortina apresentou perfeito alinhamento e excelente desempenho térmico-acústico.</p>
+                    </div>
+                    <div class="testimonial-author">- Ricardo Almeida (Arquiteto)</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Nossa construtora já utilizou esquadrias de alumínio da PerfilGlass em 8 empreendimentos. A qualidade dos perfis, a precisão dos fechamentos e o atendimento técnico especializado nos fizeram adotá-los como fornecedores exclusivos.</p>
+                    </div>
+                    <div class="testimonial-author">- Fernanda Costa (Construtora Vista Linda)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fale com Nossos Especialistas</h2>
+                <p>Solicite um orçamento ou agende uma visita técnica para seu projeto</p>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="project">Tipo de Projeto</label>
+                        <select id="project" name="project" required>
+                            <option value="">Selecione...</option>
+                            <option value="residencial">Residencial</option>
+                            <option value="comercial">Comercial</option>
+                            <option value="corporativo">Corporativo</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Detalhes do Seu Projeto</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Solicitar Proposta <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">Perfil<span>Glass</span></div>
+            <p>Soluções premium em esquadrias de alumínio</p>
+            <p>Atendendo São Paulo e região com excelência desde 1983</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="contato.html">Contato</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Serviço</a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 PerfilGlass - Especialistas em Esquadrias de Alumínio. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Smooth scroll function
+        function scrollToContent() {
+            const element = document.querySelector('.features');
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scroll for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulação de envio do formulário
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            
+            alert(`Obrigado, ${name}! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.`);
+            
+            // Aqui você pode adicionar o código real para enviar o formulário
+            // Exemplo com Fetch API:
+            /*
+            fetch('seu-endpoint.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if(data.success) {
+                    document.getElementById('contactForm').reset();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.');
+            });
+            */
+            
+            this.reset();
+        });
+    </script>
+</body>
+</html>

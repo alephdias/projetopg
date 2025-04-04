@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos PerfilGlass - Esquadrias de Alumínio Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #006400;
+            --primary-light: #2E8B57;
+            --primary-dark: #004d00;
+            --secondary: #333333;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray: #e9ecef;
+            --dark-gray: #6c757d;
+            --text: #212529;
+            --text-light: #495057;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 18px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .header.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary-light);
+            margin-left: 4px;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--primary-light);
+            font-size: 24px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 32px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 16px;
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .hero-products {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1600585152220-90363fe7e115');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 32px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            opacity: 0.9;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 24px;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .scroll-down:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .product-categories {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-light);
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .category-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(46, 139, 87, 0.15);
+            border-color: var(--primary-light);
+        }
+        
+        .category-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .category-card:hover .category-image img {
+            transform: scale(1.1);
+        }
+        
+        .category-info {
+            padding: 28px;
+            position: relative;
+        }
+        
+        .category-info h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        
+        .features-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 32px;
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+        
+        .features-list li:hover {
+            color: var(--text);
+        }
+        
+        .features-list li:before {
+            content: "\f00c";
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary-light);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+        
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary-light);
+            color: var(--primary-light);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-outline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--primary-light);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn-outline:hover:before {
+            width: 100%;
+        }
+        
+        .btn-outline:hover {
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(46, 139, 87, 0.3);
+        }
+        
+        .btn-outline i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .btn-outline:hover i {
+            transform: translateX(4px);
+        }
+        
+        /* Seções de Produtos */
+        .product-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-section:nth-child(even) {
+            background-color: var(--light);
+        }
+        
+        .product-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .product-header h2 {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .product-header h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-light);
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .product-header p {
+            color: var(--text-light);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .product-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            height: 500px;
+            position: relative;
+        }
+        
+        .product-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+            z-index: 1;
+        }
+        
+        .product-image:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 100, 0, 0.2);
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .product-details h3 {
+            font-size: 30px;
+            color: var(--primary-light);
+            margin-bottom: 28px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .product-details h3:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-light);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .product-specs {
+            margin-bottom: 36px;
+        }
+        
+        .product-specs h4 {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .product-specs h4 i {
+            margin-right: 12px;
+            color: var(--primary-light);
+            font-size: 20px;
+        }
+        
+        .spec-list {
+            list-style: none;
+        }
+        
+        .spec-list li {
+            margin-bottom: 12px;
+            padding-left: 36px;
+            position: relative;
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+        
+        .spec-list li:hover {
+            color: var(--text);
+        }
+        
+        .spec-list li:before {
+            content: "\f054";
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary-light);
+            position: absolute;
+            left: 12px;
+            top: 4px;
+            font-size: 12px;
+        }
+        
+        .custom-notice {
+            background-color: rgba(46, 139, 87, 0.08);
+            border-left: 4px solid var(--primary-light);
+            padding: 24px;
+            margin-top: 36px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .custom-notice:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-light);
+        }
+        
+        .custom-notice p {
+            color: var(--text);
+            font-style: italic;
+            position: relative;
+            padding-left: 28px;
+            line-height: 1.6;
+        }
+        
+        .custom-notice p:before {
+            content: '\f05a';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+            font-size: 18px;
+            top: 2px;
+        }
+        
+        /* Technical Info Section */
+        .technical-info {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 48px;
+        }
+        
+        .info-card {
+            background-color: var(--white);
+            padding: 36px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 100, 0, 0.1);
+        }
+        
+        .info-card h3 {
+            font-size: 26px;
+            color: var(--primary);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .specs-table th, .specs-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .specs-table th {
+            background-color: rgba(0, 100, 0, 0.05);
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        .specs-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .specs-table tr:hover td {
+            background-color: rgba(46, 139, 87, 0.05);
+        }
+        
+        /* Seção do Catálogo com Tabelas */
+        .catalog-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .catalog-section h3 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 24px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .catalog-section h3:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-light);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0 50px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .product-table th, .product-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .product-table th {
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        
+        .product-table tr:hover {
+            background-color: rgba(46, 139, 87, 0.05);
+        }
+        
+        .category-header {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .category-header td {
+            padding: 14px 16px;
+        }
+        
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0 50px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .spec-table th, .spec-table td {
+            padding: 14px;
+            text-align: center;
+            border: 1px solid var(--gray);
+        }
+        
+        .spec-table th {
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+        
+        .spec-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+        
+        .spec-table tr:hover {
+            background-color: rgba(46, 139, 87, 0.05);
+        }
+        
+        /* Seção Download Catálogo */
+        .catalog-download {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+        
+        .catalog-download:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary-light), var(--primary));
+        }
+        
+        .catalog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .catalog-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .catalog-content p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .btn-white {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-white:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-white i {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .btn-white:hover i {
+            transform: translateX(4px);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            padding: 80px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary-light), var(--primary));
+        }
+        
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .footer p {
+            margin-bottom: 16px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 17px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 36px 0;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 12px;
+            color: var(--white);
+            font-size: 20px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 24px 0;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            margin: 0 16px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            opacity: 0.8;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 15px;
+            opacity: 0.7;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-light);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Responsividade */
+        @media (max-width: 1200px) {
+            .product-content {
+                gap: 40px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .product-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-image {
+                height: 400px;
+                max-width: 600px;
+                margin: 0 auto 40px;
+            }
+            
+            .hero-content h1 {
+                font-size: 42px;
+            }
+            
+            .section-title h2, .product-header h2 {
+                font-size: 36px;
+            }
+            
+            .product-table, .spec-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .header-content {
+                justify-content: center;
+            }
+            
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-products {
+                height: 60vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .section-title h2, .product-header h2 {
+                font-size: 32px;
+            }
+            
+            .product-image {
+                height: 350px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+            }
+            
+            .footer-links a {
+                margin: 8px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-products {
+                height: 50vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 30px;
+            }
+            
+            .product-section {
+                padding: 70px 0;
+            }
+            
+            .info-card {
+                padding: 24px;
+            }
+            
+            .catalog-content h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-building"></i>Perfil<span>Glass</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="painel.html">Painel</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-products">
+        <div class="hero-content">
+            <h1>Soluções em Esquadrias de Alumínio</h1>
+            <p>Sistemas premium para projetos residenciais e corporativos em São Paulo</p>
+        </div>
+        <div class="scroll-down" onclick="scrollToContent()">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="product-categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossas Linhas de Produtos</h2>
+                <p>Tecnologia alemã combinada com 40 anos de expertise familiar</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154" alt="Janelas de Alumínio">
+                    </div>
+                    <div class="category-info">
+                        <h3>Janelas de Alumínio</h3>
+                        <ul class="features-list">
+                            <li>Sistema de abre e fecha suave</li>
+                            <li>Vedação termoacústica</li>
+                            <li>Variedade de acabamentos</li>
+                            <li>Opções de vidros especiais</li>
+                        </ul>
+                        <a href="#janelas" class="btn-outline">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3" alt="Portas de Alumínio">
+                    </div>
+                    <div class="category-info">
+                        <h3>Portas de Alumínio</h3>
+                        <ul class="features-list">
+                            <li>Portas de correr premium</li>
+                            <li>Sistema de pivotante para varandas</li>
+                            <li>Portões automáticos residenciais</li>
+                            <li>Segurança reforçada</li>
+                        </ul>
+                        <a href="#portas" class="btn-outline">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154" alt="Fachadas">
+                    </div>
+                    <div class="category-info">
+                        <h3>Fachadas em Alumínio</h3>
+                        <ul class="features-list">
+                            <li>Fachadas cortina</li>
+                            <li>Brise soleil metálico</li>
+                            <li>Esquadrias para sacada</li>
+                            <li>Soluções para coberturas</li>
+                        </ul>
+                        <a href="#fachadas" class="btn-outline">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1600566752225-7e7d61d4a716" alt="Esquadrias Especiais">
+                    </div>
+                    <div class="category-info">
+                        <h3>Esquadrias Especiais</h3>
+                        <ul class="features-list">
+                            <li>Janelas pivotantes</li>
+                            <li>Portas de enrolar</li>
+                            <li>Sistemas basculantes</li>
+                            <li>Projetos sob medida</li>
+                        </ul>
+                        <a href="#esquadrias" class="btn-outline">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1600566753086-5deac5b6f262" alt="Box para Banheiro">
+                    </div>
+                    <div class="category-info">
+                        <h3>Box para Banheiro</h3>
+                        <ul class="features-list">
+                            <li>Perfis slim de alumínio</li>
+                            <li>Vidros temperados 8mm</li>
+                            <li>Sistema de dobradiça invisível</li>
+                            <li>Variedade de acabamentos</li>
+                        </ul>
+                        <a href="#box" class="btn-outline">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3" alt="Acessórios">
+                    </div>
+                    <div class="category-info">
+                        <h3>Acessórios Premium</h3>
+                        <ul class="features-list">
+                            <li>Ferragens importadas</li>
+                            <li>Trilhos de alta resistência</li>
+                            <li>Fechaduras com segurança</li>
+                            <li>Kits de instalação</li>
+                        </ul>
+                        <a href="#acessorios" class="btn-outline">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Box -->
+    <section class="product-section" id="box">
+        <div class="container">
+            <div class="product-header">
+                <h2>Box para Banheiro</h2>
+                <p>Soluções elegantes e funcionais para seu banheiro</p>
+            </div>
+            
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1600566753086-5deac5b6f262" alt="Box para Banheiro">
+                </div>
+                
+                <div class="product-details">
+                    <h3>Especificações Técnicas</h3>
+                    
+                    <div class="product-specs">
+                        <h4><i class="fas fa-ruler-combined"></i> Materiais e Acabamentos</h4>
+                        <ul class="spec-list">
+                            <li>Perfis de alumínio anodizado ou pintura eletrostática</li>
+                            <li>Vidro temperado transparente ou fosco (8mm ou 10mm)</li>
+                            <li>Sistema de abertura: deslizante, pivotante ou fixo</li>
+                            <li>Dobradiças ocultas de alta resistência</li>
+                            <li>Vedação em silicone ou EPDM</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="product-specs">
+                        <h4><i class="fas fa-expand"></i> Dimensões e Variantes</h4>
+                        <ul class="spec-list">
+                            <li>Altura padrão: 1.90m (personalizável)</li>
+                            <li>Largura: conforme medidas do banheiro</li>
+                            <li>Opções: porta articulada, correr ou pivotante</li>
+                            <li>Possibilidade de serigrafia no vidro</li>
+                            <li>Perfis slim disponíveis para design minimalista</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="custom-notice">
+                        <p><strong>Observação:</strong> Todos os nossos boxes são fabricados sob medida para atender às especificações do seu banheiro. Entre em contato para um orçamento personalizado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Janelas -->
+    <section class="product-section" id="janelas" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="product-header">
+                <h2>Janelas de Alumínio</h2>
+                <p>Conforto, segurança e eficiência energética para seu projeto</p>
+            </div>
+            
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154" alt="Janelas de Alumínio">
+                </div>
+                
+                <div class="product-details">
+                    <h3>Especificações Técnicas</h3>
+                    
+                    <div class="product-specs">
+                        <h4><i class="fas fa-window-maximize"></i> Linha Standard</h4>
+                        <ul class="spec-list">
+                            <li>Perfis de 25mm a 45mm de espessura</li>
+                            <li>Sistemas: correr, máximo-ar, abrir ou basculante</li>
+                            <li>Vidros: comum, temperado ou laminado</li>
+                            <li>Vedação termoacústica com EPDM</li>
+                            <li>Rede mosquiteira opcional</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="product-specs">
+                        <h4><i class="fas fa-star"></i> Linha Premium</h4>
+                        <ul class="spec-list">
+                            <li>Perfis de 50mm a 70mm com quebra térmica</li>
+                            <li>Vidros duplos ou laminados para isolamento</li>
+                            <li>Sistema de abertura com fechamento suave</li>
+                            <li>Rede mosquiteira integrada</li>
+                            <li>Acabamento de alta durabilidade</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="custom-notice">
+                        <p><strong>Observação:</strong> Oferecemos soluções personalizadas para cada tipo de projeto. Consulte-nos para a melhor opção para sua necessidade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Portas -->
+    <section class="product-section" id="portas">
+        <div class="container">
+            <div class="product-header">
+                <h2>Portas de Alumínio</h2>
+                <p>Design moderno aliado à funcionalidade e segurança</p>
+            </div>
+            
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3" alt="Portas de Alumínio">
+                </div>
+                
+                <div class="product-details">
+                    <h3>Especificações Técnicas</h3>
+                    
+                    <div class="product-specs">
+                        <h4><i class="fas fa-door-open"></i> Portas de Correr</h4>
+                        <ul class="spec-list">
+                            <li>Perfis de alumínio reforçado (55mm a 85mm)</li>
+                            <li>Vidro temperado 8mm ou 10mm</li>
+                            <li>Sistema de correr com rolamentos de alta qualidade</li>
+                            <li>Opções: trilho inferior ou suspenso</li>
+                            <li>Persiana integrada opcional</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="product-specs">
+                        <h4><i class="fas fa-door-closed"></i> Portas Pivotantes</h4>
+                        <ul class="spec-list">
+                            <li>Design moderno e sofisticado</li>
+                            <li>Sistema de pivot com regulagem de tensão</li>
+                            <li>Vidro temperado ou laminado de segurança</li>
+                            <li>Acabamentos diferenciados disponíveis</li>
+                            <li>Fechamento suave com amortecimento</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="custom-notice">
+                        <p><strong>Observação:</strong> Todas as nossas portas são fabricadas sob medida para garantir perfeito funcionamento e estética. Consulte-nos para orientação técnica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Fachadas -->
+    <section class="product-section" id="fachadas" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="product-header">
+                <h2>Fachadas em Alumínio</h2>
+                <p>Soluções arquitetônicas de alto desempenho para edificações</p>
+            </div>
+            
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154" alt="Fachadas em Alumínio">
+                </div>
+                
+                <div class="product-details">
+                    <h3>Especificações Técnicas</h3>
+                    
+                    <div class="product-specs">
+                        <h4><i class="fas fa-building"></i> Fachada Cortina</h4>
+                        <ul class="spec-list">
+                            <li>Estrutura em alumínio de alta resistência</li>
+                            <li>Vidro temperado ou laminado de segurança</li>
+                            <li>Sistema de esquadrias ocultas ou aparentes</li>
+                            <li>Opções: transparente, fumê ou refletivo</li>
+                            <li>Proteção UV disponível</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="product-specs">
+                        <h4><i class="fas fa-sun"></i> Brise Soleil</h4>
+                        <ul class="spec-list">
+                            <li>Lâminas de alumínio orientáveis</li>
+                            <li>Sistema fixo ou ajustável</li>
+                            <li>Proteção solar com controle de luminosidade</li>
+                            <li>Diversas cores e acabamentos</li>
+                            <li>Resistência às intempéries</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="custom-notice">
+                        <p><strong>Observação:</strong> Desenvolvemos projetos personalizados de fachadas com cálculo estrutural específico para cada edificação.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Esquadrias Especiais -->
+    <section class="product-section" id="esquadrias">
+        <div class="container">
+            <div class="product-header">
+                <h2>Esquadrias Especiais</h2>
+                <p>Soluções customizadas para necessidades específicas</p>
+            </div>
+            
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1600566752225-7e7d61d4a716" alt="Esquadrias Especiais">
+                </div>
+                
+                <div class="product-details">
+                    <h3>Especificações Técnicas</h3>
+                    
+                    <div class="product-specs">
+                        <h4><i class="fas fa-window-restore"></i> Janelas Pivotantes</h4>
+                        <ul class="spec-list">
+                            <li>Eixo central para abertura de 180°</li>
+                            <li>Controle preciso de ventilação</li>
+                            <li>Vidros de até 12mm de espessura</li>
+                            <li>Sistema de travamento seguro</li>
+                            <li>Acabamento premium</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="product-specs">
+                        <h4><i class="fas fa-arrows-alt-h"></i> Portas de Enrolar</h4>
+                        <ul class="spec-list">
+                            <li>Sistema compacto e durável</li>
+                            <li>Guia superior e inferior para melhor estabilidade</li>
+                            <li>Opção manual ou motorizada</li>
+                            <li>Vedação perimetral para proteção</li>
+                            <li>Diversas opções de acabamento</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="custom-notice">
+                        <p><strong>Observação:</strong> Trabalhamos com projetos especiais sob demanda, adaptando-nos às necessidades específicas de cada cliente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Acessórios -->
+    <section class="product-section" id="acessorios" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="product-header">
+                <h2>Acessórios Premium</h2>
+                <p>Componentes de alta qualidade para completar seu projeto</p>
+            </div>
+            
+            <div class="product-content">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3" alt="Acessórios Premium">
+                </div>
+                
+                <div class="product-details">
+                    <h3>Especificações Técnicas</h3>
+                    
+                    <div class="product-specs">
+                        <h4><i class="fas fa-key"></i> Ferragens e Fechaduras</h4>
+                        <ul class="spec-list">
+                            <li>Fechaduras multiponto de segurança</li>
+                            <li>Maçanetas em diversos designs e materiais</li>
+                            <li>Trincos e puxadores de alta durabilidade</li>
+                            <li>Ferragens especiais para projetos arquitetônicos</li>
+                            <li>Acabamentos: cromado, bronzeado ou pintado</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="product-specs">
+                        <h4><i class="fas fa-blinds"></i> Persianas e Cortinas</h4>
+                        <ul class="spec-list">
+                            <li>Persianas de alumínio com tratamento UV</li>
+                            <li>Sistema de enrolar manual ou automático</li>
+                            <li>Diversas cores e níveis de opacidade</li>
+                            <li>Proteção solar e privacidade</li>
+                            <li>Instalação integrada à esquadria</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="custom-notice">
+                        <p><strong>Observação:</strong> Nossos acessórios são selecionados para garantir perfeito funcionamento e durabilidade com nossos sistemas de esquadrias.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-info">
+        <div class="container">
+            <div class="section-title">
+                <h2>Padrões de Qualidade</h2>
+                <p>Compromisso com excelência em todos os nossos produtos</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Materiais e Processos</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Componente</th>
+                            <th>Especificação</th>
+                        </tr>
+                        <tr>
+                            <td>Perfis de Alumínio</td>
+                            <td>Liga 6063-T5, tratamento superficial anodizado ou pintura eletrostática</td>
+                        </tr>
+                        <tr>
+                            <td>Vidros</td>
+                            <td>Temperado, laminado ou duplo, conforme necessidade</td>
+                        </tr>
+                        <tr>
+                            <td>Vedação</td>
+                            <td>EPDM de alta durabilidade para estanqueidade</td>
+                        </tr>
+                        <tr>
+                            <td>Ferragens</td>
+                            <td>Importadas, certificadas conforme normas internacionais</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="info-card">
+                    <h3>Desempenho</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Característica</th>
+                            <th>Performance</th>
+                        </tr>
+                        <tr>
+                            <td>Isolamento Térmico</td>
+                            <td>Redução significativa na transferência de calor</td>
+                        </tr>
+                        <tr>
+                            <td>Isolamento Acústico</td>
+                            <td>Atenuação sonora conforme especificação do projeto</td>
+                        </tr>
+                        <tr>
+                            <td>Resistência Estrutural</td>
+                            <td>Projetadas para resistir a ventos fortes</td>
+                        </tr>
+                        <tr>
+                            <td>Garantia</td>
+                            <td>10 anos contra defeitos de fabricação</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção do Catálogo com Tabelas -->
+    <section class="catalog-section" id="catalog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Catálogo Técnico de Produtos</h2>
+                <p>Especificações completas de nossas esquadrias de alumínio</p>
+            </div>
+            
+            <h3>Linha Completa de Produtos</h3>
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                        <th>Perfil</th>
+                        <th>Vedação</th>
+                        <th>Aplicação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Janelas -->
+                    <tr class="category-header">
+                        <td colspan="6">Janelas de Alumínio</td>
+                    </tr>
+                    <tr>
+                        <td>Janela de Correr</td>
+                        <td>JCR-45</td>
+                        <td>Sistema de correr 45mm com roldanas de nylon</td>
+                        <td>45mm</td>
+                        <td>Dupla vedação EPDM</td>
+                        <td>Residencial/Comercial</td>
+                    </tr>
+                    <tr>
+                        <td>Janela Basculante</td>
+                        <td>JB-50</td>
+                        <td>Sistema basculante com abertura máxima 45°</td>
+                        <td>50mm</td>
+                        <td>Vedante termoacústico</td>
+                        <td>Banheiros/Lavabos</td>
+                    </tr>
+                    
+                    <!-- Portas -->
+                    <tr class="category-header">
+                        <td colspan="6">Portas de Alumínio</td>
+                    </tr>
+                    <tr>
+                        <td>Porta de Correr</td>
+                        <td>PCR-55</td>
+                        <td>Sistema pesado com trilho inferior oculto</td>
+                        <td>55mm</td>
+                        <td>Vedante brush</td>
+                        <td>Varandas</td>
+                    </tr>
+                    
+                    <!-- Fachadas -->
+                    <tr class="category-header">
+                        <td colspan="6">Sistemas para Fachadas</td>
+                    </tr>
+                    <tr>
+                        <td>Fachada Cortina</td>
+                        <td>FCT-65</td>
+                        <td>Sistema estrutural para grandes vãos</td>
+                        <td>65mm</td>
+                        <td>Vedação pressurizada</td>
+                        <td>Edifícios corporativos</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-top: 50px;">Especificações Técnicas Detalhadas</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Código</th>
+                        <th rowspan="2">Descrição</th>
+                        <th colspan="3">Dimensões (mm)</th>
+                        <th colspan="2">Desempenho</th>
+                        <th rowspan="2">Peso (kg/m²)</th>
+                    </tr>
+                    <tr>
+                        <th>Perfil</th>
+                        <th>Vidro</th>
+                        <th>Folga</th>
+                        <th>Acústico (dB)</th>
+                        <th>Térmico (W/m²K)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Janelas -->
+                    <tr>
+                        <td>JCR-45</td>
+                        <td>Janela Correr 45mm</td>
+                        <td>45</td>
+                        <td>6-12mm</td>
+                        <td>15</td>
+                        <td>32</td>
+                        <td>3.5</td>
+                        <td>9.2</td>
+                    </tr>
+                    <tr>
+                        <td>JB-50</td>
+                        <td>Janela Basculante</td>
+                        <td>50</td>
+                        <td>8mm</td>
+                        <td>12</td>
+                        <td>28</td>
+                        <td>4.2</td>
+                        <td>10.5</td>
+                    </tr>
+                    
+                    <!-- Portas -->
+                    <tr>
+                        <td>PCR-55</td>
+                        <td>Porta Correr Premium</td>
+                        <td>55</td>
+                        <td>8-10mm</td>
+                        <td>18</td>
+                        <td>35</td>
+                        <td>3.2</td>
+                        <td>12.8</td>
+                    </tr>
+                    
+                    <!-- Fachadas -->
+                    <tr>
+                        <td>FCT-65</td>
+                        <td>Fachada Cortina</td>
+                        <td>65</td>
+                        <td>10-16mm</td>
+                        <td>25</td>
+                        <td>42</td>
+                        <td>2.8</td>
+                        <td>15.3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="catalog-download">
+        <div class="container">
+            <div class="catalog-content">
+                <h2>Catálogo Completo em PDF</h2>
+                <p>Baixe nosso catálogo técnico completo com todas as linhas de produtos, medidas padrão e especificações detalhadas para seu projeto.</p>
+                <a href="catalogo-perfilglass.pdf" class="btn-white">Download do Catálogo <i class="fas fa-download"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">Perfil<span>Glass</span></div>
+            <p>Especialistas em esquadrias de alumínio desde 1983</p>
+            <p>Atendendo exclusivamente São Paulo com excelência</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="contato.html">Contato</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Serviço</a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 PerfilGlass. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Smooth scroll function
+        function scrollToContent() {
+            const element = document.querySelector('.product-categories');
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scroll for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
